@@ -36,7 +36,7 @@ const roomImages = [
 
 const galleryImages = [
   "/sport/photos/single-room-b.webp",
-  "/sport/photos/bathroom.webp",
+  "/sport/photos/bathroom-basic.webp",
   "/sport/photos/shower.webp",
   "/sport/photos/bunk-portrait-a.webp",
   "/sport/photos/bunk-portrait-b.webp",
@@ -252,7 +252,7 @@ export default function Home() {
 
       <section className="food-section" id="food">
         <div className="food-visual">
-          <Image src="/sport/photos/amenities-room.webp" alt={t.food.imageAlt} fill sizes="(max-width: 900px) 100vw, 52vw" />
+          <Image src="/sport/photos/team-room-tv.webp" alt={t.food.imageAlt} fill sizes="(max-width: 900px) 100vw, 52vw" />
         </div>
         <div className="food-copy">
           <p className="eyebrow">{t.food.eyebrow}</p>
