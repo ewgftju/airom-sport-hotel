@@ -1349,57 +1349,117 @@ section[id] {
 
 .contact-map-panel {
   position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
   overflow: hidden;
-  background: var(--accent-deep);
+  background: #d9e1e4;
   color: var(--white);
 }
 
-.map-grid {
+.contact-map-panel > iframe {
   position: absolute;
   inset: 0;
-  opacity: 0.25;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
-  background-size: 52px 52px;
-  transform: rotate(-11deg) scale(1.25);
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(0.7) contrast(1.03);
+  pointer-events: none;
 }
 
-.contact-map-panel svg,
-.contact-map-panel span,
-.contact-map-panel strong,
-.contact-map-panel small {
-  position: relative;
+.map-tone {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 66, 88, 0.02), rgba(0, 37, 51, 0.34));
+  pointer-events: none;
+}
+
+.map-center-marker {
+  position: absolute;
   z-index: 2;
+  top: 43%;
+  left: 50%;
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  border: 6px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 14px 36px rgba(8, 21, 28, 0.3);
+  color: var(--ink);
+  transform: translate(-50%, -50%);
 }
 
-.contact-map-panel svg {
-  margin-bottom: 22px;
+.map-center-marker::after {
+  position: absolute;
+  inset: -16px;
+  border: 2px solid rgba(16, 170, 215, 0.32);
+  border-radius: 50%;
+  content: "";
 }
 
-.contact-map-panel span {
-  font-size: clamp(2.2rem, 5vw, 5.5rem);
-  font-weight: 950;
-  letter-spacing: -0.06em;
-  line-height: 0.82;
+.map-location-card {
+  position: absolute;
+  z-index: 2;
+  right: clamp(20px, 4vw, 58px);
+  bottom: clamp(20px, 4vw, 52px);
+  left: clamp(20px, 4vw, 58px);
+  display: grid;
+  min-height: 112px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(8, 21, 28, 0.94);
+  box-shadow: 0 20px 55px rgba(8, 21, 28, 0.24);
+  color: var(--white);
+  backdrop-filter: blur(12px);
 }
 
-.contact-map-panel strong {
-  margin-top: 14px;
-  font-size: clamp(1.1rem, 2.3vw, 2.3rem);
-  letter-spacing: 0.12em;
+.map-location-card:hover {
+  background: var(--ink);
 }
 
-.contact-map-panel small {
-  margin-top: 14px;
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+.map-location-pin {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 auto;
+  place-items: center;
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.map-location-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.map-location-copy small {
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
+}
+
+.map-location-copy strong {
+  font-size: clamp(0.98rem, 1.2vw, 1.15rem);
+  line-height: 1.25;
+}
+
+.map-location-copy span {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.8rem;
+}
+
+.map-location-card > svg {
+  transition: transform 180ms ease;
+}
+
+.map-location-card:hover > svg {
+  transform: translateX(4px);
 }
 
 .contact-copy {

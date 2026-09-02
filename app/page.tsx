@@ -27,6 +27,8 @@ const phoneDisplay = "+7 775 808 3169";
 const phoneHref = "tel:+77758083169";
 const instagramHref = "https://www.instagram.com/airom_hotel/";
 const mapHref = "https://2gis.kz/atyrau/geo/70030076164553461";
+const routeHref = "https://2gis.kz/atyrau/directions/points/|51.929764,47.127752;70030076164553461";
+const mapEmbedHref = "https://www.openstreetmap.org/export/embed.html?bbox=51.9165%2C47.1206%2C51.9430%2C47.1349&layer=mapnik";
 
 const roomImages = [
   "/sport/photos/single-room.webp",
@@ -313,11 +315,25 @@ export default function Home() {
 
       <section className="contacts-section" id="contacts">
         <div className="contact-map-panel">
-          <div className="map-grid" aria-hidden="true" />
-          <MapPin size={42} />
-          <span>AIROM</span>
-          <strong>SPORT HOTEL</strong>
-          <small>{t.contacts.city}</small>
+          <iframe
+            src={mapEmbedHref}
+            title={t.contacts.mapTitle}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <div className="map-tone" aria-hidden="true" />
+          <a className="map-center-marker" href={mapHref} target="_blank" rel="noreferrer" aria-label={t.contacts.mapTitle}>
+            <MapPin size={34} />
+          </a>
+          <a className="map-location-card" href={mapHref} target="_blank" rel="noreferrer">
+            <span className="map-location-pin"><MapPin size={30} /></span>
+            <span className="map-location-copy">
+              <small>AIROM SPORT HOTEL</small>
+              <strong>{t.contacts.address}</strong>
+              <span>{t.contacts.city}</span>
+            </span>
+            <ArrowRight size={20} />
+          </a>
         </div>
         <div className="contact-copy">
           <p className="eyebrow">{t.contacts.eyebrow}</p>
@@ -328,7 +344,7 @@ export default function Home() {
             <a href={instagramHref} target="_blank" rel="noreferrer"><InstagramIcon size={22} /><span><small>Instagram</small>@airom_hotel</span></a>
             <div><Clock3 size={22} /><span><small>{t.contacts.reception}</small>{t.contacts.alwaysOpen}</span></div>
           </div>
-          <a className="button button--ink" href={mapHref} target="_blank" rel="noreferrer">{t.contacts.route}<ArrowRight size={18} /></a>
+          <a className="button button--ink" href={routeHref} target="_blank" rel="noreferrer">{t.contacts.route}<ArrowRight size={18} /></a>
         </div>
       </section>
 
