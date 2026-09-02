@@ -441,7 +441,8 @@ section[id] {
 .hero-visual img,
 .room-photo img,
 .food-visual img,
-.team-room-photo img {
+.team-room-photo img,
+.gallery-photo img {
   object-fit: cover;
 }
 
@@ -450,28 +451,6 @@ section[id] {
   inset: 0;
   background: linear-gradient(90deg, rgba(14, 20, 23, 0.32), transparent 35%), linear-gradient(0deg, rgba(14, 20, 23, 0.32), transparent 38%);
   content: "";
-}
-
-.visualization-badge {
-  position: absolute;
-  z-index: 4;
-  top: 22px;
-  right: 22px;
-  display: inline-flex;
-  min-height: 36px;
-  align-items: center;
-  gap: 7px;
-  padding: 0 13px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #31454e;
-  font-size: 0.73rem;
-  font-weight: 800;
-  backdrop-filter: blur(10px);
-}
-
-.visualization-badge--dark {
-  background: rgba(14, 20, 23, 0.85);
-  color: var(--white);
 }
 
 .hero-visual-label {
@@ -486,7 +465,6 @@ section[id] {
   padding: 24px 30px;
   background: var(--accent-deep);
   color: var(--white);
-  color: var(--ink);
 }
 
 .hero-visual-label span {
@@ -597,8 +575,7 @@ section[id] {
   content: "";
 }
 
-.room-number,
-.room-photo-note {
+.room-number {
   position: absolute;
   z-index: 2;
   bottom: 16px;
@@ -615,12 +592,6 @@ section[id] {
   place-items: center;
   background: var(--accent);
   color: var(--ink);
-}
-
-.room-photo-note {
-  right: 18px;
-  padding: 7px 10px;
-  background: rgba(14, 20, 23, 0.72);
 }
 
 .room-card-copy {
@@ -690,6 +661,90 @@ section[id] {
   color: var(--muted);
   font-size: 0.88rem;
   line-height: 1.55;
+}
+
+.gallery-section {
+  padding-top: clamp(78px, 8vw, 118px);
+  padding-bottom: clamp(78px, 8vw, 118px);
+  background: var(--accent-deep);
+  color: var(--white);
+}
+
+.gallery-heading .eyebrow {
+  color: var(--accent);
+}
+
+.gallery-heading > p {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.photo-gallery {
+  display: grid;
+  grid-auto-rows: 160px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gallery-photo {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--ink-3);
+}
+
+.gallery-photo::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(6, 12, 15, 0.72), transparent 45%);
+  content: "";
+  pointer-events: none;
+}
+
+.gallery-photo img {
+  transition: transform 420ms ease;
+}
+
+.gallery-photo:hover img {
+  transform: scale(1.025);
+}
+
+.gallery-photo:nth-child(1) {
+  grid-column: span 7;
+  grid-row: span 2;
+}
+
+.gallery-photo:nth-child(2) {
+  grid-column: span 5;
+  grid-row: span 2;
+}
+
+.gallery-photo:nth-child(n + 3):nth-child(-n + 6) {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.gallery-photo:nth-child(n + 7) {
+  grid-column: span 4;
+}
+
+.gallery-photo figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 17px;
+  bottom: 15px;
+  left: 17px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--white);
+  font-size: 0.79rem;
+  font-weight: 800;
+}
+
+.gallery-photo figcaption span {
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 900;
 }
 
 .rates-section {
@@ -1541,6 +1596,24 @@ section[id] {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .photo-gallery {
+    grid-auto-rows: 150px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .gallery-photo:nth-child(1),
+  .gallery-photo:nth-child(2) {
+    grid-column: span 6;
+  }
+
+  .gallery-photo:nth-child(n + 3):nth-child(-n + 6) {
+    grid-column: span 3;
+  }
+
+  .gallery-photo:nth-child(n + 7) {
+    grid-column: span 2;
+  }
+
   .food-section,
   .contacts-section {
     grid-template-columns: 1fr;
@@ -1626,13 +1699,6 @@ section[id] {
     min-height: 430px;
   }
 
-  .visualization-badge {
-    top: 14px;
-    right: 14px;
-    min-height: 32px;
-    font-size: 0.68rem;
-  }
-
   .hero-visual-label {
     max-width: 280px;
     padding: 18px 20px;
@@ -1687,6 +1753,32 @@ section[id] {
     min-height: 130px;
     padding: 22px 5px;
     border-right: 0;
+  }
+
+  .photo-gallery {
+    grid-auto-rows: 145px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .gallery-photo:nth-child(1),
+  .gallery-photo:nth-child(2) {
+    grid-column: span 2;
+  }
+
+  .gallery-photo:nth-child(n + 3):nth-child(-n + 6) {
+    grid-column: span 1;
+  }
+
+  .gallery-photo:nth-child(n + 7) {
+    grid-column: span 2;
+  }
+
+  .gallery-photo figcaption {
+    right: 12px;
+    bottom: 11px;
+    left: 12px;
+    font-size: 0.72rem;
   }
 
   .rates-inner {

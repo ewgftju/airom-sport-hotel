@@ -15,7 +15,6 @@ import {
   Menu,
   Phone,
   ShieldCheck,
-  Sparkles,
   Users,
   UtensilsCrossed,
   Wifi,
@@ -30,9 +29,21 @@ const instagramHref = "https://www.instagram.com/airom_hotel/";
 const mapHref = "https://2gis.kz/atyrau/geo/70030076164553461";
 
 const roomImages = [
-  "/sport/twin-room.webp",
-  "/sport/twin-room.webp",
-  "/sport/team-room.webp",
+  "/sport/photos/single-room.webp",
+  "/sport/photos/twin-room-a.webp",
+  "/sport/photos/team-room-main.webp",
+];
+
+const galleryImages = [
+  "/sport/photos/single-room-b.webp",
+  "/sport/photos/bathroom.webp",
+  "/sport/photos/shower.webp",
+  "/sport/photos/bunk-portrait-a.webp",
+  "/sport/photos/bunk-portrait-b.webp",
+  "/sport/photos/bunk-portrait-c.webp",
+  "/sport/photos/bunk-detail-wide-a.webp",
+  "/sport/photos/bunk-detail-wide-b.webp",
+  "/sport/photos/bunk-detail-wide-c.webp",
 ];
 
 const roomIcons = [Hotel, BedDouble, Users];
@@ -148,8 +159,7 @@ export default function Home() {
         </div>
 
         <div className="hero-visual">
-          <Image src="/sport/twin-room.webp" alt={t.hero.imageAlt} fill priority sizes="(max-width: 900px) 100vw, 52vw" />
-          <span className="visualization-badge"><Sparkles size={15} />{t.visualization}</span>
+          <Image src="/sport/photos/twin-room-b.webp" alt={t.hero.imageAlt} fill priority sizes="(max-width: 900px) 100vw, 52vw" />
           <div className="hero-visual-label"><span>01</span><strong>{t.hero.visualLabel}</strong></div>
         </div>
       </section>
@@ -174,7 +184,6 @@ export default function Home() {
                 <div className="room-photo">
                   <Image src={roomImages[index]} alt={room.imageAlt} fill sizes="(max-width: 760px) 100vw, 34vw" />
                   <span className="room-number">0{index + 1}</span>
-                  <span className="room-photo-note">{t.visualizationShort}</span>
                 </div>
                 <div className="room-card-copy">
                   <Icon size={26} />
@@ -191,6 +200,21 @@ export default function Home() {
             const Icon = advantageIcons[index];
             return <article key={item.title}><Icon size={23} /><div><h3>{item.title}</h3><p>{item.text}</p></div></article>;
           })}
+        </div>
+      </section>
+
+      <section className="section gallery-section" aria-labelledby="gallery-title">
+        <div className="section-heading gallery-heading">
+          <div><p className="eyebrow">{t.gallery.eyebrow}</p><h2 id="gallery-title">{t.gallery.title}</h2></div>
+          <p>{t.gallery.intro}</p>
+        </div>
+        <div className="photo-gallery">
+          {galleryImages.map((src, index) => (
+            <figure className="gallery-photo" key={src}>
+              <Image src={src} alt={t.gallery.imageAlts[index]} fill sizes="(max-width: 700px) 100vw, (max-width: 980px) 50vw, 34vw" />
+              <figcaption><span>0{index + 1}</span>{t.gallery.captions[index]}</figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
@@ -228,8 +252,7 @@ export default function Home() {
 
       <section className="food-section" id="food">
         <div className="food-visual">
-          <Image src="/sport/dining-room.webp" alt={t.food.imageAlt} fill sizes="(max-width: 900px) 100vw, 52vw" />
-          <span className="visualization-badge visualization-badge--dark"><Sparkles size={15} />{t.visualization}</span>
+          <Image src="/sport/photos/amenities-room.webp" alt={t.food.imageAlt} fill sizes="(max-width: 900px) 100vw, 52vw" />
         </div>
         <div className="food-copy">
           <p className="eyebrow">{t.food.eyebrow}</p>
@@ -267,8 +290,7 @@ export default function Home() {
         </div>
         <div className="teams-layout">
           <div className="team-room-photo">
-            <Image src="/sport/team-room.webp" alt={t.teams.imageAlt} fill sizes="(max-width: 900px) 100vw, 52vw" />
-            <span className="visualization-badge"><Sparkles size={15} />{t.visualization}</span>
+            <Image src="/sport/photos/team-room-angle.webp" alt={t.teams.imageAlt} fill sizes="(max-width: 900px) 100vw, 52vw" />
           </div>
           <div className="documents-card">
             <FileCheck2 size={31} />
