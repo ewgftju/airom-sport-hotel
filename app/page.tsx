@@ -131,11 +131,11 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-copy">
-          <p className="eyebrow eyebrow--lime">{t.hero.eyebrow}</p>
+          <p className="eyebrow eyebrow--accent">{t.hero.eyebrow}</p>
           <h1>{t.hero.title}<span>{t.hero.titleAccent}</span></h1>
           <p className="hero-lead">{t.hero.lead}</p>
           <div className="hero-actions">
-            <a className="button button--lime" href={whatsappHref} target="_blank" rel="noreferrer">
+            <a className="button button--accent" href={whatsappHref} target="_blank" rel="noreferrer">
               <WhatsAppIcon size={19} />{t.hero.book}<ArrowRight size={19} />
             </a>
             <a className="button button--dark-outline" href="#rates">{t.hero.viewRates}</a>
@@ -197,7 +197,7 @@ export default function Home() {
       <section className="rates-section" id="rates">
         <div className="section rates-inner">
           <div className="section-heading section-heading--light">
-            <div><p className="eyebrow eyebrow--lime">{t.rates.eyebrow}</p><h2>{t.rates.title}</h2></div>
+            <div><p className="eyebrow eyebrow--accent">{t.rates.eyebrow}</p><h2>{t.rates.title}</h2></div>
             <p>{t.rates.intro}</p>
           </div>
 
@@ -252,9 +252,18 @@ export default function Home() {
       </section>
 
       <section className="section teams-section" id="teams">
-        <div className="section-heading">
-          <div><p className="eyebrow">{t.teams.eyebrow}</p><h2>{t.teams.title}</h2></div>
-          <p>{t.teams.intro}</p>
+        <div className="teams-heading">
+          <div className="teams-heading-main">
+            <p className="eyebrow eyebrow--accent">{t.teams.eyebrow}</p>
+            <h2>{t.teams.title}</h2>
+          </div>
+          <div className="teams-heading-aside">
+            <span aria-hidden="true">01</span>
+            <p>{t.teams.intro}</p>
+            <a href={whatsappHref} target="_blank" rel="noreferrer">
+              <WhatsAppIcon size={19} />{t.actions.write}<ArrowRight size={19} />
+            </a>
+          </div>
         </div>
         <div className="teams-layout">
           <div className="team-room-photo">
@@ -272,10 +281,10 @@ export default function Home() {
       </section>
 
       <section className="booking-section">
-        <div><p className="eyebrow eyebrow--lime">{t.booking.eyebrow}</p><h2>{t.booking.title}</h2></div>
+        <div><p className="eyebrow eyebrow--accent">{t.booking.eyebrow}</p><h2>{t.booking.title}</h2></div>
         <div className="booking-price"><span>{t.booking.from}</span><strong>14 000 ₸</strong><small>{t.booking.perNight}</small></div>
         <div className="booking-actions">
-          <a className="button button--lime" href={whatsappHref} target="_blank" rel="noreferrer"><WhatsAppIcon size={19} />{t.actions.write}</a>
+          <a className="button button--accent" href={whatsappHref} target="_blank" rel="noreferrer"><WhatsAppIcon size={19} />{t.actions.write}</a>
           <a className="button button--dark-outline" href={phoneHref}><Phone size={18} />{t.actions.call}</a>
         </div>
       </section>
